@@ -1,0 +1,10 @@
+{
+  "data": {
+    "functions": [
+      {
+        "id": "temperatures.csv",
+        "label": "Temperatures",
+      },
+    ]
+  }
+}

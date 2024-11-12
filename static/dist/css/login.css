@@ -1,0 +1,22 @@
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#grid{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.login-box {
+  position: relative;
+  bottom: 0;
+  /*background: rgba(0, 0, 0, 0.5);*/
+}

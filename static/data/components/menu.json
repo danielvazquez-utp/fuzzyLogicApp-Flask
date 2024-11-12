@@ -1,0 +1,38 @@
+{
+  "data": {
+    "opciones": [
+      {
+        "label": "Temperatures",
+        "dataset": "temperatures.csv",
+      },
+      {
+        "label": "Weights",
+        "dataset": "weights.csv",
+      },
+      {
+        "label": "Heights",
+        "dataset": "heights.csv",
+      },
+      {
+        "label": "Distances",
+        "dataset": "distances.csv",
+      },
+      {
+        "label": "Velocities",
+        "dataset": "velocities.csv",
+      },
+      {
+        "label": "Volumes",
+        "dataset": "volumes.csv",
+      },
+      {
+        "label": "Accelerations",
+        "dataset": "accelerations.csv",
+      },
+      {
+        "label": "Forces",
+        "dataset": "forces.csv",
+      },
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+/*Hoja de estilos para las gráficas del sistema*/
+
+.chartCanvas {
+	width: 100%; 
+	border: solid 1px #AAA; 
+	margin-bottom: 1rem;
+}
+
+#sensChart {
+	background-color: white;
+	background-image: url('../../../vendor/dist/img/bg-sens-2.png');
+	background-size: 100%;
+}

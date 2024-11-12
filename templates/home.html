@@ -1,0 +1,336 @@
+<html>
+  <!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>MF - Fuzzy Logic</title>
+
+    <!-- Icono -->
+    <link rel="icon" type="img/icon" href="{{ url_for("static", filename="dist/img/logos/favicon.ico") }}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="plugins/fontawesome-free/css/all.min.css") }}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="plugins/icheck-bootstrap/icheck-bootstrap.min.css") }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static", filename="plugins/datatables-responsive/css/responsive.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static", filename="plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="dist/css/adminlte.min.css") }}">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css") }}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="plugins/toastr/toastr.min.css") }}">
+  
+    <!-- Own stylesheets -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="dist/css/personalized.css") }}">
+  
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+    
+  </head>
+
+  <body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand bg-uatx">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link text-white"><i class="fas fa-house-user"></i> Inicio</a>
+          </li>
+        </ul>
+      
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          
+          <li class="nav-item">
+            <a class="nav-link text-white" data-widget="fullscreen" href="#" role="button" title="Pantalla completa">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+      
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" role="button" title="Salir">
+              <i class="fas fa-sign-out-alt"></i>
+            </a>
+          </li>
+      
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-light-success elevation-3">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link bg-uatx">
+          <img src="{{ url_for("static", filename="dist/img/logos/uatx-logo-1.jpg") }}" alt="UATx Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light"><span class="text-white">MF - Web</span></span>
+        </a>
+    
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user (optional) -->
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="{{ url_for("static", filename="dist/img/avatar-neutral.png") }}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+              <a class="d-block text-red"><strong>Datasets</strong></a>
+            </div>
+          </div>
+    
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class
+                   with font-awesome or any other icon font library -->
+
+              {% for opc in opciones %}
+                <li class="nav-item">
+                  {% if opc['label']==opcion %}
+                    <a href="/home/{{ opc['label'] }}" class="nav-link active">
+                  {% else %}
+                    <a href="/home/{{ opc['label'] }}" class="nav-link">
+                  {% endif %}
+                  <i class="fas fa-chevron-circle-right"></i>
+                  <p class="text">{{ opc['label'] }}</p>
+                  </a>
+                </li>
+              
+              {% endfor %}
+              
+            </ul>
+
+            <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5>
+                  <i class="far fa-comment"></i> Description</h5>
+                  This Web App was created for helping student to understand Member functions suggested by Roger Jang under Fuzzy sets theory.
+              </div>
+            
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>Welcome <small class="text-gray">Member Functions Fuzzy Logic App</small></h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a class="text-real-maroon"><i class="fas fa-house-user"></i> Inicio</a></li>
+                  <li class="breadcrumb-item active">MF Web App</li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+          <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-6">
+              <form method="post" action="../home">
+                <div class="card card-warning">
+                  <div class="card-header">
+                    <h3 class="card-title">Functions</h3>
+                  </div>
+                  <div class="card-body">
+                    
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input custom-control-input-danger" type="checkbox" id="customCheckbox4" checked="">
+                        <label for="customCheckbox4" class="custom-control-label">Triangular MF</label>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input custom-control-input-danger" type="checkbox" id="customCheckbox4" checked="">
+                        <label for="customCheckbox4" class="custom-control-label">Trapezoidal MF</label>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input custom-control-input-danger" type="checkbox" id="customCheckbox4" checked="">
+                        <label for="customCheckbox4" class="custom-control-label">Gaussian MF</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-lg btn-secondary float-right">Aceptar</button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h5>
+                  <i class="far fa-comment"></i> Please follow the instructions</h5>
+                  <ol>
+                    <li>Select a dataset.</li>
+                    <li>Check Member Functions that you want to include in dataset analysis.</li>
+                  </ol>
+              </div>
+              
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-6">
+
+              <div class="card card-warning">
+                <div class="card-header">
+                  <h2 class="card-title">
+                    <i class="fas fa-chart-area"></i>
+                    Dataset selectec: {{ opcion }}</h2> 
+                </div>
+                <div class="card-body">
+
+                  <table id="datatable" class="table table-bordered table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>{{ opcion }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for value in dataset %}
+                        <tr>
+                          <td>{{ loop.index }}</td>
+                          <td>{{ value }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  
+                </div>
+                
+              </div>
+              
+              
+            </div>
+            
+          </div>
+
+          <div class="row">
+            
+            <div class="col-xs-12 col-md-12 col-lg-12">
+              
+              
+            </div>
+            
+          </div>
+
+          
+          
+        </section>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+      <footer class="main-footer">
+      	<div class="float-right d-none d-sm-block">
+            <b>Version</b> 1.0
+          </div>
+          <strong>Creado por <a href="https://danielvazquez.neocities.org/" target="_blank" class="text-red">Paulo Daniel Vázquez Mora</a></strong> Todos los derechos reservados
+      </footer>
+      
+    	<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top" title="Ir al inicio de la página">
+        <i class="fas fa-chevron-up"></i>
+      </a>
+      
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="{{ url_for("static", filename="plugins/jquery/jquery.min.js") }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ url_for("static", filename="plugins/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ url_for("static", filename="plugins/datatables/jquery.dataTables.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-responsive/js/dataTables.responsive.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-responsive/js/responsive.bootstrap4.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-buttons/js/dataTables.buttons.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-buttons/js/buttons.bootstrap4.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/jszip/jszip.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/pdfmake/pdfmake.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/pdfmake/vfs_fonts.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-buttons/js/buttons.html5.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-buttons/js/buttons.print.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="plugins/datatables-buttons/js/buttons.colVis.min.js") }}"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="{{ url_for("static", filename="plugins/sweetalert2/sweetalert2.min.js") }}"></script>
+    <!-- Toastr -->
+    <script src="{{ url_for("static", filename="plugins/toastr/toastr.min.js") }}"></script>
+    
+    <!-- Chats.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/pdfjs-dist@2.6.347,npm/chart.js@3.1.0"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    
+    <!-- AdminLTE App -->
+    <script src="{{ url_for("static", filename="dist/js/adminlte.min.js") }}"></script>
+
+    <script>
+      $(function () {
+        $("#datatable").DataTable({
+          "responsive": true, 
+          "searching": false,
+          "lengthChange": false,
+          "autoWidth": true,
+          "language": {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+              "sFirst":    "Primero",
+              "sLast":     "Último",
+              "sNext":     "Siguiente",
+              "sPrevious": "Anterior"
+            },
+            "oAria": {
+              "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+              "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            },
+            "buttons":{
+              "colvis": "Columnas",
+              "copy": "Copiar",
+              "print": "Imprimir",
+            }
+          },
+          "pageLength": 10,
+        }).buttons().container().appendTo('#datatable_wrapper .col-md-6:eq(0)');
+        
+      });
+    </script>
+    
+  </body>
+</html>
